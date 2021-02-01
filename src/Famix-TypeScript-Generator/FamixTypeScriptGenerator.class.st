@@ -14,7 +14,7 @@ Class {
 { #category : #accessing }
 FamixTypeScriptGenerator class >> packageName [
 
-    ^ #'Famix-TypeScript-Generator'
+    ^ #'Famix-TypeScript-Entities'
 ]
 
 { #category : #accessing }
@@ -52,6 +52,6 @@ FamixTypeScriptGenerator >> defineProperties [
 
     super defineProperties.
 
-   (entity property: #name type: #String)
-       comment: 'The name of the entity'.
+   "(entity property: #name type: #String)
+       comment: 'The name of the entity'."
 ]
