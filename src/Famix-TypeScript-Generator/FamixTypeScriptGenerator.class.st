@@ -5,7 +5,8 @@ Class {
 		'class',
 		'method',
 		'type',
-		'containerEntity'
+		'containerEntity',
+		'rootEntity'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -25,7 +26,7 @@ FamixTypeScriptGenerator class >> prefix [
 { #category : #definition }
 FamixTypeScriptGenerator >> defineClasses [
 	super defineClasses.
-	
+	rootEntity := builder ensureClassNamed: #Entity.
 	class := builder
 		newClassNamed: #Class
 		comment: 'I represent a TypeScript class or interface'.
@@ -58,6 +59,6 @@ FamixTypeScriptGenerator >> defineProperties [
 
     super defineProperties.
 
-   "(entity property: #name type: #String)
-       comment: 'The name of the entity'."
+   (rootEntity property: #name type: #String)
+       comment: 'The name of the entity'.
 ]
