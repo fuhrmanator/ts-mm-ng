@@ -4,9 +4,8 @@ Class {
 	#instVars : [
 		'class',
 		'method',
-		'variable',
-		'localVariable',
-		'attribute'
+		'type',
+		'containerEntity'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -20,31 +19,38 @@ FamixTypeScriptGenerator class >> packageName [
 { #category : #accessing }
 FamixTypeScriptGenerator class >> prefix [
 
-    ^ #'FamixTS'
+    ^ #'FamixTypeScript'
 ]
 
 { #category : #definition }
 FamixTypeScriptGenerator >> defineClasses [
-
-    super defineClasses.
-    "entity := builder newClassNamed: #Entity."
-    class := builder newClassNamed: #Class comment: 'I represent a TypeScript class'.
-    method := builder newClassNamed: #Method.
-    variable := builder newClassNamed: #Variable.
-    localVariable := builder newClassNamed: #LocalVariable.
-    attribute := builder newClassNamed: #Attribute.
-
+	super defineClasses.
+	
+	class := builder
+		newClassNamed: #Class
+		comment: 'I represent a TypeScript class or interface'.
+	containerEntity := builder newClassNamed: #ContainerEntity.
+	method := builder
+		newClassNamed: #Method
+		comment: 'I represent a method in a TypeScript class'.
+	type := builder newClassNamed: #Type.
 ]
 
 { #category : #definition }
 FamixTypeScriptGenerator >> defineHierarchy [
+	super defineHierarchy.
 
-    super defineHierarchy.
-"    class --|> entity.
-    method --|> entity."
+	class --|> type.
+	class --|> #TClass.
+	class --|> #TLCOMMetrics.
 
-    variable <|-- localVariable.
-    variable <|-- attribute.
+	method --|> containerEntity.
+	method --|> #TMethod.
+	
+	type --|> containerEntity.
+	type --|> #TType.
+	type --|> #TWithMethods.
+
 ]
 
 { #category : #definition }
