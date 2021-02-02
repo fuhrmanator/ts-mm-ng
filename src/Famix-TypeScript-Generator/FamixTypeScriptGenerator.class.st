@@ -27,7 +27,7 @@ FamixTypeScriptGenerator class >> prefix [
 FamixTypeScriptGenerator >> defineClasses [
 
     super defineClasses.
-    entity := builder newClassNamed: #Entity.
+    "entity := builder newClassNamed: #Entity."
     class := builder newClassNamed: #Class comment: 'I represent a TypeScript class'.
     method := builder newClassNamed: #Method.
     variable := builder newClassNamed: #Variable.
