@@ -56,11 +56,11 @@ FamixTypeScriptGenerator class >> #packageName
     ^ #'Famix-TypeScript-Entities'
 ```
 
-> MGL843: In Pharo specifications, the text `FamixTypeScriptGenerator class >> #packageName` means "here is the definition of a class-side method (like a "static" method in Java) `packageName` in the `FamixTypeScriptGenerator` class." To add this method:
-> * click the **Class side** radio button in the browser window to show the class-side methods.
+> MGL843: In Pharo documentation, [there is a convention for how methods are defined](http://rmod-pharo-mooc.lille.inria.fr/MOOC/PharoMOOC/Week1/C019-W1S06-ClassAndMethodDefinition.pdf#page=7). The text `FamixTypeScriptGenerator class >> #` **is not part of the method's definition**. It means "here is the definition of a class-side method in the `FamixTypeScriptGenerator` class." A class-side method is like a "static" method in Java. To add the `packageName` method:
+> * click the **Class side** radio button in the browser window to change the browser to the class-side methods (as opposed to instance side).
 > * select the **+ Class side method** tab to see an editor that allows creating the method.
-> * type everything *after* the `FamixTypeScriptGenerator class >> #` and type <kbd>CTRL</kbd>-<kbd>S</kbd>. 
-
+> * select all the text in the editor, then paste everything *after* the `FamixTypeScriptGenerator class >> #`.
+> * type <kbd>CTRL</kbd>-<kbd>S</kbd> to accept (save) the method. 
 
 By default the package name will be used as a prefix for the generated classes.
 But we can specify a custom prefix by defining the method `#prefix`.
